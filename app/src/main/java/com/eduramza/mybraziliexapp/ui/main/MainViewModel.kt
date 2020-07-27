@@ -18,12 +18,15 @@ class MainViewModel(private val repository: RemoteRepository) : ViewModel() {
         get() = _status
 
     private val _data = MutableLiveData<List<Tickers.Coin>>()
-    val data: LiveData<List<Tickers.Coin>>
-        get() = _data
+    fun getData() = _data
 
     private val listCoins : MutableList<Tickers.Coin> = mutableListOf()
 
-    fun getAllTickers(){
+    init {
+        getAllTickers()
+    }
+
+    private fun getAllTickers(){
         viewModelScope.launch {
             try{
                 _status.value = MyStatus.LOADING
@@ -34,7 +37,7 @@ class MainViewModel(private val repository: RemoteRepository) : ViewModel() {
                     listCoins.add(item.getter.call(result) as Tickers.Coin)
                 }
 
-                _data.postValue( listCoins.filter { it.active == 1} )
+                _data.postValue( listCoins.filter { it.active == 1 } )
 
                 _status.value = MyStatus.DONE
 

@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">My Braziliex App</string>
+    <string name="bitcoin">Bitcoin</string>
+    <string name="price">R$ 13468,36</string>
+    <string name="percent">73%</string>
+    <string name="vol_description">Volume (24 hrs): </string>
+    <string name="vol_value">R$ 36487,23</string>
 </resources>

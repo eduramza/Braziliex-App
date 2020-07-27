@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingBottom="@dimen/padding_default_list"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <LinearLayout
+        android:id="@+id/layout_line_1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:paddingEnd="@dimen/padding_default_list"
+        android:paddingStart="@dimen/padding_default_list"
+        android:paddingTop="@dimen/padding_default_list">
+
+        <TextView
+            android:id="@+id/tv_coin_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/bitcoin"
+            android:textSize="@dimen/text_size_list"
+            android:layout_weight="1.2"
+            android:textAlignment="textStart"/>
+        <TextView
+            android:id="@+id/tv_coin_price"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/price"
+            android:textSize="@dimen/text_size_list"
+            android:layout_weight="1"
+            android:textAlignment="center"/>
+        <TextView
+            android:id="@+id/tv_coin_percent"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/percent"
+            android:textSize="@dimen/text_size_list"
+            android:layout_weight="1.4"
+            android:textStyle="bold"
+            android:textAlignment="center"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/layout_line_2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:paddingEnd="@dimen/padding_default_list"
+        android:paddingStart="@dimen/padding_default_list"
+        app:layout_constraintTop_toBottomOf="@id/layout_line_1">
+
+        <TextView
+            android:id="@+id/tv_vol_description"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/vol_description"
+            android:layout_weight="2"/>
+        <TextView
+            android:id="@+id/tv_vol_value"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/vol_value"
+            android:layout_weight="1"/>
+    </LinearLayout>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
