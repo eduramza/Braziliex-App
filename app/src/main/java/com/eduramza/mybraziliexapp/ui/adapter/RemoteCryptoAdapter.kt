@@ -1,6 +1,8 @@
 package com.eduramza.mybraziliexapp.ui.adapter
 
+import android.annotation.SuppressLint
 import android.content.Context
+import android.graphics.Color
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -13,6 +15,10 @@ import com.eduramza.mybraziliexapp.extensions.convertDoubleToBRLVol
 import com.eduramza.mybraziliexapp.extensions.getCryptoName
 import com.eduramza.mybraziliexapp.extensions.returnPercentWithSymbol
 import kotlinx.android.synthetic.main.item_list_coins.view.*
+
+
+const val POSITIVE_COLOR = "#27B52C"
+const val NEGATIVE_COLOR = "#FB3527"
 
 class RemoteCryptoAdapter(
     private val list: MutableList<Tickers.Coin>
@@ -43,7 +49,16 @@ class RemoteCryptoAdapter(
             itemView.tv_coin_name.text = item.market.getCryptoName()
             itemView.tv_coin_price.text = item.last.convertDoubleToBRL()
             itemView.tv_coin_percent.text = item.percentChange.returnPercentWithSymbol()
+            setupPercent(item)
             itemView.tv_vol_value.text = item.quoteVolume24.convertDoubleToBRLVol()
+        }
+
+        private fun setupPercent(item: Tickers.Coin){
+            if (item.percentChange >= 0) {
+                itemView.tv_coin_percent.setTextColor(Color.parseColor(POSITIVE_COLOR))
+            } else {
+                itemView.tv_coin_percent.setTextColor(Color.parseColor(NEGATIVE_COLOR))
+            }
         }
 
     }

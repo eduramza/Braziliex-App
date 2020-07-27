@@ -13,8 +13,6 @@ fun Double.convertDoubleToBRLVol(): String{
     return "${NumberFormat.getCurrencyInstance(ptBr).format(this)} (Vol.)"
 }
 
-fun Double.returnPercentWithSymbol(): String{
-    return "$this %"
-}
+fun Double.returnPercentWithSymbol() = "$this%"
 
 fun String.getCryptoName() = Cryptos.valueOf(this.split("_")[0].toUpperCase()).coin
