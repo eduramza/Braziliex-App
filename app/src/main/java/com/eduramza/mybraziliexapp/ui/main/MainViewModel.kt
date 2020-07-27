@@ -37,7 +37,10 @@ class MainViewModel(private val repository: RemoteRepository) : ViewModel() {
                     listCoins.add(item.getter.call(result) as Tickers.Coin)
                 }
 
-                _data.postValue( listCoins.filter { it.active == 1 } )
+                _data.postValue(
+                    listCoins.filter { it.active == 1 }
+                            .sortedBy { it.quoteVolume24 }
+                            .reversed() )
 
                 _status.value = MyStatus.DONE
 

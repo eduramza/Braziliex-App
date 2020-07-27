@@ -8,6 +8,13 @@ fun Double.convertDoubleToBRL(): String{
     return NumberFormat.getCurrencyInstance(ptBr).format(this)
 }
 
+fun Double.convertDoubleToBRLVol(): String{
+    val ptBr = Locale("pt", "BR")
+    return "${NumberFormat.getCurrencyInstance(ptBr).format(this)} (Vol.)"
+}
+
 fun Double.returnPercentWithSymbol(): String{
     return "$this %"
 }
+
+fun String.getCryptoName() = Cryptos.valueOf(this.split("_")[0].toUpperCase()).coin

@@ -9,6 +9,8 @@ import androidx.recyclerview.widget.RecyclerView
 import com.eduramza.mybraziliexapp.R
 import com.eduramza.mybraziliexapp.data.model.Tickers
 import com.eduramza.mybraziliexapp.extensions.convertDoubleToBRL
+import com.eduramza.mybraziliexapp.extensions.convertDoubleToBRLVol
+import com.eduramza.mybraziliexapp.extensions.getCryptoName
 import com.eduramza.mybraziliexapp.extensions.returnPercentWithSymbol
 import kotlinx.android.synthetic.main.item_list_coins.view.*
 
@@ -38,10 +40,10 @@ class RemoteCryptoAdapter(
         fun bindView(coin: Tickers.Coin) {
             this.item = coin
 
-            itemView.tv_coin_name.text = item.market
+            itemView.tv_coin_name.text = item.market.getCryptoName()
             itemView.tv_coin_price.text = item.last.convertDoubleToBRL()
             itemView.tv_coin_percent.text = item.percentChange.returnPercentWithSymbol()
-            itemView.tv_vol_value.text = item.baseVolume24.convertDoubleToBRL()
+            itemView.tv_vol_value.text = item.quoteVolume24.convertDoubleToBRLVol()
         }
 
     }

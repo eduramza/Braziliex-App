@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <dimen name="padding_default_list">10dp</dimen>
-    <dimen name="text_size_list">20sp</dimen>
+    <dimen name="text_size_list">18sp</dimen>
+    <dimen name="mrg_end_volume">120dp</dimen>
 </resources>
