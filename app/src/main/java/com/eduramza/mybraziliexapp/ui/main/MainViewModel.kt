@@ -7,6 +7,7 @@ import androidx.lifecycle.viewModelScope
 import com.eduramza.mybraziliexapp.data.model.Tickers
 import com.eduramza.mybraziliexapp.data.repository.RemoteRepository
 import kotlinx.coroutines.launch
+import kotlin.reflect.full.memberProperties
 
 enum class MyStatus{LOADING, ERROR, DONE}
 
@@ -16,15 +17,24 @@ class MainViewModel(private val repository: RemoteRepository) : ViewModel() {
     val status: LiveData<MyStatus>
         get() = _status
 
-    private val _data = MutableLiveData<Tickers>()
-    val data: LiveData<Tickers>
+    private val _data = MutableLiveData<List<Tickers.Coin>>()
+    val data: LiveData<List<Tickers.Coin>>
         get() = _data
+
+    private val listCoins : MutableList<Tickers.Coin> = mutableListOf()
 
     fun getAllTickers(){
         viewModelScope.launch {
             try{
                 _status.value = MyStatus.LOADING
-                _data.postValue(repository.getAllTickers().await())
+                val result = repository.getAllTickers()
+                val properties = result::class.memberProperties
+
+                properties.forEach { item ->
+                    listCoins.add(item.getter.call(result) as Tickers.Coin)
+                }
+
+                _data.postValue( listCoins.filter { it.active == 1} )
 
                 _status.value = MyStatus.DONE
 

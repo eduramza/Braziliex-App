@@ -5,5 +5,5 @@ import kotlinx.coroutines.Deferred
 import retrofit2.Response
 
 interface RemoteRepository {
-    suspend fun getAllTickers(): Deferred<Tickers>
+    suspend fun getAllTickers(): Tickers
 }
