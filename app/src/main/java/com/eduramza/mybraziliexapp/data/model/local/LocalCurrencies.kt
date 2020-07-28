@@ -10,6 +10,5 @@ data class LocalCurrencies(
     val coin_name : String,
     val coin_nickname: String,
     var qtde: Double = 0.0,
-    val unit_price: Double = 0.0,
-    val total: Double = 0.0
+    val unit_price: Double = 0.0
 )
