@@ -7,4 +7,5 @@
     <dimen name="ic_edit_size">24dp</dimen>
     <dimen name="linear_container_width">360dp</dimen>
     <dimen name="text_estimated_balance">15sp</dimen>
+    <dimen name="height_ads_bottom_banner">48dp</dimen>
 </resources>
