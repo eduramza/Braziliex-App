@@ -28,4 +28,5 @@ task clean(type: Delete) {
 ext {
     retrofit = "2.9.0"
     koin_version = '2.1.6'
+    room_version = "2.2.5"
 }

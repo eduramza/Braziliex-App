@@ -15,4 +15,4 @@ fun Double.convertDoubleToBRLVol(): String{
 
 fun Double.returnPercentWithSymbol() = "$this%"
 
-fun String.getCryptoName() = Cryptos.valueOf(this.split("_")[0].toUpperCase()).coin
+fun String.getCryptoName() = CurrenciesEnum.valueOf(this.split("_")[0].toUpperCase()).coin

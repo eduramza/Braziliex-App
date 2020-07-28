@@ -1,4 +1,4 @@
-package com.eduramza.mybraziliexapp.data.repository
+package com.eduramza.mybraziliexapp.data.repository.remote
 
 import com.eduramza.mybraziliexapp.data.model.Tickers
 import kotlinx.coroutines.Deferred
