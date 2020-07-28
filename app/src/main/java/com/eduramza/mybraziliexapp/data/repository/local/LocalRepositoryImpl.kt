@@ -17,8 +17,8 @@ class LocalRepositoryImpl(private val dao: CryptoDao) :
 
     override suspend fun listAllCryptos() = dao.getAllCryptos()
 
-    override suspend fun updateQtde(qtde: Double, name: String) {
-        TODO("Not yet implemented")
+    override suspend fun updateQtde(qtde: Double, id: Int) {
+        dao.updateQtde(qtde, id)
     }
 
     override suspend fun deleteAll() {

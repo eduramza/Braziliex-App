@@ -1,21 +1,18 @@
 package com.eduramza.mybraziliexapp.ui.adapter
 
 import android.annotation.SuppressLint
-import android.graphics.Color
+import android.view.KeyEvent
 import android.view.View
 import android.view.View.GONE
 import android.view.View.VISIBLE
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.eduramza.mybraziliexapp.R
-import com.eduramza.mybraziliexapp.data.model.Tickers
 import com.eduramza.mybraziliexapp.data.model.local.LocalCurrencies
+import com.eduramza.mybraziliexapp.extensions.changeDotInComma
 import com.eduramza.mybraziliexapp.extensions.convertDoubleToBRL
-import com.eduramza.mybraziliexapp.extensions.convertDoubleToBRLVol
-import com.eduramza.mybraziliexapp.extensions.getCryptoName
-import com.eduramza.mybraziliexapp.extensions.returnPercentWithSymbol
+import com.eduramza.mybraziliexapp.extensions.toCommaDouble
 import kotlinx.android.synthetic.main.item_list_balance.view.*
-import kotlinx.android.synthetic.main.item_list_coins.view.*
 
 class LocalCryptoAdapter (private val list: MutableList<LocalCurrencies>,
                           private val listener: LocalAdapterListener
@@ -45,27 +42,44 @@ class LocalCryptoAdapter (private val list: MutableList<LocalCurrencies>,
 
             itemView.tv_coin_name_b.text = item.coin_name
             itemView.tv_coin_total_price_b.text = (item.qtde * item.unit_price).convertDoubleToBRL()
-            itemView.tv_qtde_value.text = "${item.coin_nickname} ${item.qtde}"
-            itemView.et_qtde_b.setText(item.qtde.toString())
+            itemView.tv_qtde_value.text = "${item.coin_nickname} ${item.qtde.changeDotInComma()}"
+            itemView.et_qtde_b.setText(item.qtde.changeDotInComma())
 
             itemView.ic_edit_qtde_b.setOnClickListener {
                 if (itemView.et_qtde_b.visibility == GONE){
-
-                    listener.openQtdeEditor()
-                    itemView.tv_qtde_value.visibility == GONE
-                    itemView.et_qtde_b.visibility == VISIBLE
-
+                    itemView.et_qtde_b.visibility = VISIBLE
+                    itemView.et_qtde_b.setOnKeyListener(View.OnKeyListener { v, keyCode, event ->
+                        if (keyCode == KeyEvent.KEYCODE_ENTER && event.action == KeyEvent.ACTION_UP){
+                            handleDataChange()
+                            itemView.et_qtde_b.visibility = GONE
+                            return@OnKeyListener true
+                        }
+                        false
+                    })
                 } else {
-                    listener.closeQtdeEditor()
-                    itemView.tv_qtde_value.text = "${item.coin_nickname} ${itemView.et_qtde_b.text}"
+                    handleDataChange()
+                    itemView.et_qtde_b.visibility = GONE
                 }
             }
+        }
+
+        @SuppressLint("SetTextI18n")
+        private fun handleDataChange(){
+            item.qtde =
+                if( itemView.et_qtde_b.text.isEmpty() )  0.0
+                else itemView.et_qtde_b.text.toString().toCommaDouble()
+
+            itemView.tv_qtde_value.text = "${item.coin_nickname} ${item.qtde.changeDotInComma()}"
+            itemView.tv_coin_total_price_b.text =
+                (item.qtde * item.unit_price).convertDoubleToBRL()
+            listener.updateQtdeInLocal(item)
         }
 
     }
 
     interface LocalAdapterListener{
-        fun openQtdeEditor()
+        fun updateQtdeInLocal(item: LocalCurrencies)
         fun closeQtdeEditor()
     }
+
 }

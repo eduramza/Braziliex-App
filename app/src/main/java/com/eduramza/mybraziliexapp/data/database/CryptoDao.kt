@@ -16,8 +16,8 @@ interface CryptoDao {
     @Query("UPDATE cryptos SET unit_price = :price WHERE coin_name = :coin")
     suspend fun updateCryptoPrices(price: Double, coin: String)
 
-    @Query("UPDATE cryptos SET qtde = :qtde WHERE coin_name = :name")
-    suspend fun updateQtde(qtde: Double, name: String)
+    @Query("UPDATE cryptos SET qtde = :qtde WHERE id = :id")
+    suspend fun updateQtde(qtde: Double, id: Int)
 
     @Query("DELETE FROM CRYPTOS")
     suspend fun deleteAll()
