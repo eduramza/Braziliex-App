@@ -32,20 +32,18 @@ jobs:
         run: echo $FIREBASE_CONFIG > app/google-services.json
 
       # Step 3: Check the code with Android linter
-      - name: Run Android Linter
-        run: ./gradlew lintStagingDebug
 
       # Step 4: Yun your unit tests
       - name: Run Unit Tests
-        run: ./gradlew testStagingDebugUnitTest
+        run: ./gradlew testDebugUnitTest
 
       # Step 4: Assemble debug apk to send to firebase test lab
       - name: Assemble Debug APK
-        run: ./gradlew assembleStagingDebug
+        run: ./gradlew assembleDebug
 
       # Step 4: Assemble debug test apk to send to firebase test lab
       - name: Assemble Debug Test APK
-        run: ./gradlew assembleStagingDebugAndroidTest
+        run: ./gradlew assembleDebugAndroidTest
 
       # Step 4: Run instrumented tests on firebase test lab
       - name: Run tests on Firebase Test Lab
