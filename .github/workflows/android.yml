@@ -33,19 +33,19 @@ jobs:
 
       # Step 3: Check the code with Android linter
       - name: Run Android Linter
-        run: ./gradlew lintDebug
+        run: ./gradlew lintStagingDebug
 
       # Step 4: Yun your unit tests
       - name: Run Unit Tests
-        run: ./gradlew testDebugUnitTest
+        run: ./gradlew testStagingDebugUnitTest
 
       # Step 4: Assemble debug apk to send to firebase test lab
       - name: Assemble Debug APK
-        run: ./gradlew assembleDebug
+        run: ./gradlew assembleStagingDebug
 
       # Step 4: Assemble debug test apk to send to firebase test lab
       - name: Assemble Debug Test APK
-        run: ./gradlew assembleDebugAndroidTest
+        run: ./gradlew assembleStagingDebugAndroidTest
 
       # Step 4: Run instrumented tests on firebase test lab
       - name: Run tests on Firebase Test Lab
