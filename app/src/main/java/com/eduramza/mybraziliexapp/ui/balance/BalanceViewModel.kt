@@ -17,11 +17,7 @@ class BalanceViewModel(private val localRepository: LocalRepository) : ViewModel
     private val _balance = MutableLiveData<Double>()
     fun getBalanceEstimated(): LiveData<Double> = _balance
 
-    init {
-        getAllCoins()
-    }
-
-    private fun getAllCoins(){
+    fun getAllCoins(){
         viewModelScope.launch {
             try {
                 val result = localRepository.listAllCryptos()

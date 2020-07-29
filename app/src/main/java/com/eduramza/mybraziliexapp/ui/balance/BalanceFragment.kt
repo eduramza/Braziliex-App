@@ -58,6 +58,7 @@ class BalanceFragment : Fragment(), LocalCryptoAdapter.LocalAdapterListener {
 
     @SuppressLint("SetTextI18n")
     private fun setupObservers(){
+        viewModel.getAllCoins()
         viewModel.getData().observe(viewLifecycleOwner, Observer {
             adapter.updateAdapter(it as MutableList<LocalCurrencies>)
         })

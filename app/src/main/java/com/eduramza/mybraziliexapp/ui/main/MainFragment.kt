@@ -56,6 +56,7 @@ class MainFragment : Fragment() {
 
         viewModel.getData().observe(viewLifecycleOwner, Observer {
             adapter.updateAdapter(it as MutableList<Tickers.Coin>)
+            viewModel.updateLocalDatabase()
         })
     }
 

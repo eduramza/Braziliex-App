@@ -54,15 +54,13 @@ class MainViewModel(private val remoteRepository: RemoteRepository,
 
                 _status.value = MyStatus.DONE
 
-                updateLocalDatabase()
-
             } catch (e: Exception){
                 _status.value = MyStatus.ERROR
             }
         }
     }
 
-    private fun updateLocalDatabase(){
+    fun updateLocalDatabase(){
         viewModelScope.launch {
             val localList = localRepository.listAllCryptos()
 

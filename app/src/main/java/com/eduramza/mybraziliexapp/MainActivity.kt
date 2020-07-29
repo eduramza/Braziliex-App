@@ -8,6 +8,7 @@ import com.eduramza.mybraziliexapp.ui.balance.BalanceFragment
 import com.eduramza.mybraziliexapp.ui.main.MainFragment
 import com.google.android.gms.ads.AdListener
 import com.google.android.gms.ads.AdRequest
+import com.google.android.gms.ads.AdSize
 import com.google.android.gms.ads.MobileAds
 import kotlinx.android.synthetic.main.main_activity.*
 
