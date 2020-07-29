@@ -3,7 +3,6 @@
     <string name="bitcoin">Bitcoin</string>
     <string name="price">R$ 13468,36</string>
     <string name="percent">73%</string>
-    <string name="vol_description">Volume (24 hrs): </string>
     <string name="vol_value">R$ 36487,23 (Vol.)</string>
     <string name="qtd_value">XRP 36524,36</string>
     <string name="quantidade">Quantidade</string>

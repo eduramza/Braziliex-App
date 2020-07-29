@@ -60,7 +60,7 @@ class BalanceFragment : Fragment(), LocalCryptoAdapter.LocalAdapterListener {
     private fun setupObservers(){
         viewModel.getAllCoins()
         viewModel.getData().observe(viewLifecycleOwner, Observer {
-            adapter.updateAdapter(it as MutableList<LocalCurrencies>)
+            if(it.isNotEmpty()) adapter.updateAdapter(it as MutableList<LocalCurrencies>)
         })
         viewModel.getBalanceEstimated().observe(viewLifecycleOwner, Observer {
             tv_estimated_balance.text =
