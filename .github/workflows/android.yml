@@ -5,6 +5,10 @@ on:
   pull_request:
     branches:
       - develop
+  push:
+    branches:
+      - develop
+      - master
 
 jobs:
   testing:
@@ -20,7 +24,8 @@ jobs:
         uses: actions/setup-java@v1
         with:
           java-version: 1.8
-      - name: Change wrapper permissions
+
+      - name: Change Gradlew permissions
          run: chmod +x ./gradlew
 
       # Step 2: Decode Google services configuration file
