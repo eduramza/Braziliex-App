@@ -5,9 +5,7 @@ on:
   pull_request:
     branches:
       - develop
-  push:
-    branches:
-      - develop
+
 jobs:
   testing:
     name: Lint Check and Testing
