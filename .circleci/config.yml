@@ -10,4 +10,7 @@ jobs:
     steps:
       - checkout
       - run:
-          command: ./gradlew build
+          name: Buil Phase
+          command: |
+              sudo chmod +x ./gradlew
+              ./gradlew build
