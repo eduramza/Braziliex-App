@@ -8,7 +8,7 @@ import androidx.room.migration.Migration
 import androidx.sqlite.db.SupportSQLiteDatabase
 import com.eduramza.mybraziliexapp.data.model.local.LocalCurrencies
 
-@Database(entities = [LocalCurrencies::class], version = 2)
+@Database(entities = [LocalCurrencies::class], version = 1)
 abstract class AppDatabase: RoomDatabase(){
 
     abstract fun cryptoDao(): CryptoDao

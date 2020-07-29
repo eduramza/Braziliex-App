@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <dimen name="padding_default_list">10dp</dimen>
+    <dimen name="padding_default_list">6dp</dimen>
     <dimen name="mrg_bottom_coordinator">22dp</dimen>
     <dimen name="text_size_list">18sp</dimen>
-    <dimen name="text_size_list_balance">20sp</dimen>
-    <dimen name="mrg_end_volume">120dp</dimen>
-    <dimen name="ic_edit_size">36dp</dimen>
+    <dimen name="text_size_list_balance">17sp</dimen>
+    <dimen name="mrg_end_volume">80dp</dimen>
+    <dimen name="ic_edit_size">32dp</dimen>
     <dimen name="linear_container_width">360dp</dimen>
     <dimen name="text_estimated_balance">15sp</dimen>
     <dimen name="height_ads_bottom_banner">48dp</dimen>
@@ -13,6 +13,6 @@
     <dimen name="text_size_generic_error">18sp</dimen>
     <dimen name="mrg_start_try_again_button">24dp</dimen>
     <dimen name="mrg_top_try_again_button">24dp</dimen>
-    <dimen name="mrg_bottom_img_error">82dp</dimen>
-    <dimen name="mrg_toolbar_title_start">32dp</dimen>
+    <dimen name="mrg_bottom_img_error">62dp</dimen>
+    <dimen name="mrg_toolbar_title_start">24dp</dimen>
 </resources>

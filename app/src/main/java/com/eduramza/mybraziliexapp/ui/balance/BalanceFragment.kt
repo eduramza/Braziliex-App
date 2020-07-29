@@ -22,10 +22,6 @@ import org.koin.android.viewmodel.ext.android.viewModel
 const val ESTIMATED_BALANCE = "Saldo Estimado: "
 class BalanceFragment : Fragment(), LocalCryptoAdapter.LocalAdapterListener {
 
-    companion object {
-        fun newInstance() = BalanceFragment()
-    }
-
     private val viewModel: BalanceViewModel by viewModel()
     private lateinit var adapter: LocalCryptoAdapter
 
@@ -60,7 +56,9 @@ class BalanceFragment : Fragment(), LocalCryptoAdapter.LocalAdapterListener {
     private fun setupObservers(){
         viewModel.getAllCoins()
         viewModel.getData().observe(viewLifecycleOwner, Observer {
-            adapter.updateAdapter(it as MutableList<LocalCurrencies>)
+            if(it.isNotEmpty())
+                adapter.updateAdapter(it as MutableList<LocalCurrencies>)
+
         })
         viewModel.getBalanceEstimated().observe(viewLifecycleOwner, Observer {
             tv_estimated_balance.text =
@@ -77,10 +75,6 @@ class BalanceFragment : Fragment(), LocalCryptoAdapter.LocalAdapterListener {
         val imm: InputMethodManager =
             requireActivity().getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
         imm.hideSoftInputFromWindow(requireView().windowToken, 0)
-    }
-
-    override fun closeQtdeEditor() {
-        //Do nothing
     }
 
     override fun onPause() {

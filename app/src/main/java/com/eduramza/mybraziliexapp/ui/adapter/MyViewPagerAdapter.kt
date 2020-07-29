@@ -26,5 +26,4 @@ class MyViewPagerAdapter (fm: FragmentManager)
         titleList.add(title)
     }
 
-
 }

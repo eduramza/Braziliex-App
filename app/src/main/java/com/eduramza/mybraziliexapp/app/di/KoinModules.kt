@@ -23,10 +23,6 @@ val appModule = module {
 }
 
 val localModule = module {
-//    single { Room.databaseBuilder(get(),
-//        AppDatabase::class.java,
-//        "Braziliex-Database")
-//        .build() }
     single { AppDatabase.invoke(get()) }
     single { get<AppDatabase>().cryptoDao() }
     single<LocalRepository> {
@@ -34,5 +30,4 @@ val localModule = module {
             get()
         )
     }
-
 }

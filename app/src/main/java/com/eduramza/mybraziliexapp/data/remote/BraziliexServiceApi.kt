@@ -6,6 +6,6 @@ import retrofit2.http.Query
 
 interface BraziliexServiceApi {
     @GET("ticker")
-    suspend fun getTickets(@Query("active") active: String = "1"): Tickers
+    suspend fun getTickets(): Tickers
 
 }

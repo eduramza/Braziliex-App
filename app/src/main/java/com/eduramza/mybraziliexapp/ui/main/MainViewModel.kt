@@ -34,7 +34,7 @@ class MainViewModel(private val remoteRepository: RemoteRepository,
         getAllTickers()
     }
 
-    private fun getAllTickers(){
+    fun getAllTickers(){
         viewModelScope.launch {
             try{
                 _status.value = MyStatus.LOADING

@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <LinearLayout
+        android:id="@+id/layout_b_line_1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/ic_edit_qtde_b"
+        android:paddingEnd="@dimen/padding_default_list"
+        android:paddingStart="@dimen/padding_default_list"
+        android:paddingTop="@dimen/padding_default_list">
+
+        <TextView
+            android:id="@+id/tv_coin_name_b"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/bitcoin"
+            android:textSize="@dimen/text_size_list_balance"
+            android:textStyle="bold"
+            android:layout_weight="1.2"
+            android:textAlignment="textStart"/>
+        <TextView
+            android:id="@+id/tv_coin_total_price_b"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/price"
+            android:textSize="@dimen/text_size_list_balance"
+            android:textStyle="bold"
+            android:layout_weight="1"
+            android:textAlignment="center"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/layout_b_line_2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/ic_edit_qtde_b"
+        android:paddingEnd="@dimen/padding_default_list"
+        android:paddingStart="@dimen/padding_default_list"
+        app:layout_constraintTop_toBottomOf="@id/layout_b_line_1">
+
+        <TextView
+            android:id="@+id/tv_qtde_value"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/qtd_value"
+            android:layout_weight="0"
+            android:textAlignment="textEnd"
+            android:layout_marginEnd="@dimen/mrg_end_volume"/>
+
+    </LinearLayout>
+
+    <ImageView
+        android:id="@+id/ic_edit_qtde_b"
+        android:layout_width="@dimen/ic_edit_size"
+        android:layout_height="@dimen/ic_edit_size"
+        android:layout_marginTop="@dimen/padding_default_list"
+        android:layout_marginEnd="@dimen/padding_default_list"
+        android:background="@drawable/ic_arrow_down"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/til_qtde_b"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:hint="@string/quantidade"
+        android:visibility="gone"
+        app:layout_constraintTop_toBottomOf="@id/layout_b_line_2"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginStart="@dimen/padding_default_list"
+        android:layout_marginTop="@dimen/padding_default_list">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/et_qtde_b"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="numberDecimal" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

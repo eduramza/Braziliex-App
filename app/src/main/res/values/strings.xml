@@ -9,4 +9,6 @@
     <string name="quantidade">Quantidade</string>
     <string name="estimated_balance_description">Saldo Estimado: R$ 6324,12</string>
     <string name="google_play_appname">My Braziliex Wallet</string>
+    <string name="error_info_message">Ooops! Algo deu errado !\n Por favor verifique sua conexão e tente novamante</string>
+    <string name="try_again">Tentar novamente</string>
 </resources>

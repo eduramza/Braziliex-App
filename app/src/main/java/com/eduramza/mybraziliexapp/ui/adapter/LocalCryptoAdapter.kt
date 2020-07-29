@@ -63,7 +63,6 @@ class LocalCryptoAdapter (private val list: MutableList<LocalCurrencies>,
                     handleDataChange()
                     hideEditQtde()
                 }
-//                TransitionManager.beginDelayedTransition(this)
             }
         }
 
@@ -96,7 +95,6 @@ class LocalCryptoAdapter (private val list: MutableList<LocalCurrencies>,
 
     interface LocalAdapterListener{
         fun updateQtdeInLocal(item: LocalCurrencies)
-        fun closeQtdeEditor()
     }
 
 }

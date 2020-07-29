@@ -23,8 +23,9 @@
             android:layout_height="?attr/actionBarSize"
             android:background="?attr/colorPrimary"
             app:title="@string/google_play_appname"
+            app:logo="@drawable/logo_app_24x"
             app:titleTextColor="@android:color/black"
-            android:gravity="center_horizontal"
+            app:titleMarginStart="24dp"
             app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
             app:layout_scrollFlags="scroll|enterAlways"/>
 
@@ -52,7 +53,7 @@
         android:id="@+id/my_adView"
         android:layout_width="match_parent"
         android:layout_height="@dimen/height_ads_bottom_banner"
-        ads:adSize="FULL_BANNER"
+        ads:adSize="SMART_BANNER"
         android:layout_gravity="bottom"
         ads:adUnitId="ca-app-pub-3940256099942544/6300978111" />
 
