@@ -1,6 +1,6 @@
 package com.eduramza.mybraziliexapp.extensions
 
-enum class Cryptos( val coin: String){
+enum class CurrenciesEnum(val coin: String){
     BTC("Bitcoin"),
     BCH("Bitcoin-Cash"),
     LTC("Litecoin"),

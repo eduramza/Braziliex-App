@@ -1,7 +1,59 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/container"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/main_container"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity" />
+    tools:context=".MainActivity">
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/appBar_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+        app:layout_constraintBottom_toTopOf="@+id/viewPager"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/my_toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="?attr/colorPrimary"
+            app:title="@string/google_play_appname"
+            app:titleTextColor="@android:color/black"
+            android:gravity="center_horizontal"
+            app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+            app:layout_scrollFlags="scroll|enterAlways"/>
+
+        <com.google.android.material.tabs.TabLayout
+            android:id="@+id/tabs"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:tabBackground="@color/colorPrimary"
+            app:tabGravity="fill"
+            app:tabMode="fixed"
+            app:tabTextColor="@android:color/black" />
+
+    </com.google.android.material.appbar.AppBarLayout>
+
+
+    <androidx.viewpager.widget.ViewPager
+        android:id="@+id/viewPager"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/mrg_bottom_coordinator"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior" />
+
+    <com.google.android.gms.ads.AdView
+        xmlns:ads="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/my_adView"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/height_ads_bottom_banner"
+        ads:adSize="FULL_BANNER"
+        android:layout_gravity="bottom"
+        ads:adUnitId="ca-app-pub-3940256099942544/6300978111" />
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

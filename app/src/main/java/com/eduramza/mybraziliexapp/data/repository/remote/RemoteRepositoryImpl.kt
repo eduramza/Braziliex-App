@@ -1,12 +1,11 @@
-package com.eduramza.mybraziliexapp.data.repository
+package com.eduramza.mybraziliexapp.data.repository.remote
 
 import com.eduramza.mybraziliexapp.data.remote.BraziliexServiceApi
-import kotlinx.coroutines.CoroutineDispatcher
-import kotlinx.coroutines.Dispatchers
+import com.eduramza.mybraziliexapp.data.repository.remote.RemoteRepository
 
 class RemoteRepositoryImpl(
     private val api: BraziliexServiceApi
-) : RemoteRepository{
+) : RemoteRepository {
 
     override suspend fun getAllTickers() = api.getTickets()
 

@@ -1,0 +1,41 @@
+{
+  "project_info": {
+    "project_number": "920761195201",
+    "firebase_url": "https://my-braziliex-wallet.firebaseio.com",
+    "project_id": "my-braziliex-wallet",
+    "storage_bucket": "my-braziliex-wallet.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:920761195201:android:a47545f401f6f1ab965240",
+        "android_client_info": {
+          "package_name": "com.eduramza.mybraziliexapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "920761195201-8vjjmir081mav0se3aee1b3rl0h7u7rj.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD3IbvkjgM-8IvwASRwZtpCJB7w5U9M-qg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "920761195201-8vjjmir081mav0se3aee1b3rl0h7u7rj.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      },
+      "admob_app_id": "ca-app-pub-8606072529117264~5753849040"
+    }
+  ],
+  "configuration_version": "1"
+}

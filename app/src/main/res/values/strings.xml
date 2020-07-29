@@ -5,4 +5,8 @@
     <string name="percent">73%</string>
     <string name="vol_description">Volume (24 hrs): </string>
     <string name="vol_value">R$ 36487,23 (Vol.)</string>
+    <string name="qtd_value">XRP 36524,36</string>
+    <string name="quantidade">Quantidade</string>
+    <string name="estimated_balance_description">Saldo Estimado: R$ 6324,12</string>
+    <string name="google_play_appname">My Braziliex Wallet</string>
 </resources>
