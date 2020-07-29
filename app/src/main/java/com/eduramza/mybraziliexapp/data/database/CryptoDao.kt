@@ -11,7 +11,7 @@ interface CryptoDao {
     suspend fun insertCryptos(cryptos: LocalCurrencies)
 
     @Query("SELECT * FROM cryptos")
-    suspend fun getAllCryptos(): List<LocalCurrencies>
+    suspend fun getAllCryptos(): MutableList<LocalCurrencies>
 
     @Query("UPDATE cryptos SET unit_price = :price WHERE coin_name = :coin")
     suspend fun updateCryptoPrices(price: Double, coin: String)

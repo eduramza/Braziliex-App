@@ -26,7 +26,7 @@ class BalanceViewModel(private val localRepository: LocalRepository) : ViewModel
             try {
                 val result = localRepository.listAllCryptos()
 
-                _data.postValue(result)
+                _data.postValue(result.sortedBy { it.qtde }.reversed())
                 updateBalance()
             } catch (e: Exception){
                 //Do nothing yet

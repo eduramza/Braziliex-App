@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#6200EE</color>
-    <color name="colorPrimaryDark">#3700B3</color>
-    <color name="colorAccent">#03DAC5</color>
-    <color name="positive_percent">#27B52C</color>
+    <color name="colorPrimary">#FFF</color>
+    <color name="colorPrimaryDark">#838285</color>
+    <color name="colorAccent">#3C933F</color>
+    <color name="positive_percent">#36CF3B</color>
     <color name="negative_percent">#FB3527</color>
+
+    <color name="text_color_primary">#000000</color>
 </resources>

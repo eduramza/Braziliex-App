@@ -7,6 +7,7 @@ import android.view.View.GONE
 import android.view.View.VISIBLE
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import androidx.transition.TransitionManager
 import com.eduramza.mybraziliexapp.R
 import com.eduramza.mybraziliexapp.data.model.local.LocalCurrencies
 import com.eduramza.mybraziliexapp.extensions.changeDotInComma
@@ -46,27 +47,43 @@ class LocalCryptoAdapter (private val list: MutableList<LocalCurrencies>,
             itemView.et_qtde_b.setText(item.qtde.changeDotInComma())
 
             itemView.ic_edit_qtde_b.setOnClickListener {
-                if (itemView.et_qtde_b.visibility == GONE){
-                    itemView.et_qtde_b.visibility = VISIBLE
+                if (itemView.til_qtde_b.visibility == GONE){
+                    showEditQtde()
+
                     itemView.et_qtde_b.setOnKeyListener(View.OnKeyListener { v, keyCode, event ->
                         if (keyCode == KeyEvent.KEYCODE_ENTER && event.action == KeyEvent.ACTION_UP){
                             handleDataChange()
-                            itemView.et_qtde_b.visibility = GONE
+                            hideEditQtde()
                             return@OnKeyListener true
                         }
                         false
                     })
+
                 } else {
                     handleDataChange()
-                    itemView.et_qtde_b.visibility = GONE
+                    hideEditQtde()
                 }
+//                TransitionManager.beginDelayedTransition(this)
             }
+        }
+
+        private fun hideEditQtde(){
+            itemView.til_qtde_b.visibility = GONE
+            itemView.et_qtde_b.visibility = GONE
+            itemView.ic_edit_qtde_b.setBackgroundResource(R.drawable.ic_arrow_down)
+        }
+
+        private fun showEditQtde(){
+            itemView.til_qtde_b.visibility = VISIBLE
+            itemView.et_qtde_b.visibility = VISIBLE
+            itemView.ic_edit_qtde_b.setBackgroundResource(R.drawable.ic_arrow_up)
+
         }
 
         @SuppressLint("SetTextI18n")
         private fun handleDataChange(){
             item.qtde =
-                if( itemView.et_qtde_b.text.isEmpty() )  0.0
+                if(itemView.et_qtde_b.text.isNullOrEmpty())  0.0
                 else itemView.et_qtde_b.text.toString().toCommaDouble()
 
             itemView.tv_qtde_value.text = "${item.coin_nickname} ${item.qtde.changeDotInComma()}"
